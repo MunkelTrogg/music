@@ -1,0 +1,17 @@
+.layout
+    &.float
+        display: flex
+        flex-direction: row
+        align-items: flex-start
+        > .float--left
+            margin-right: auto
+        > .float--center
+            margin-left: auto
+            margin-right: auto
+        > .float--right
+            margin-left: auto
+
+
+@mixin query( $width )
+    @media screen and ( max-width: $width )
+        @content

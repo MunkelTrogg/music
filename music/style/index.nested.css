@@ -1,0 +1,98 @@
+.layout.float {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start; }
+	.layout.float > .float--left {
+		margin-right: auto; }
+	.layout.float > .float--center {
+		margin-left: auto;
+		margin-right: auto; }
+	.layout.float > .float--right {
+		margin-left: auto; }
+
+* {
+	box-sizing: border-box; }
+
+body, html {
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	color: #333;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 200;
+	font-size: 1rem; }
+
+body.document {
+	margin: 0; }
+	body.document svg {
+		width: auto;
+		height: 24px; }
+	body.document section {
+		width: 100vw;
+		align-items: flex-start;
+		max-height: 100vh; }
+		body.document section > * {
+			width: 100%; }
+		body.document section.main {
+			position: absolute;
+			flex-direction: column;
+			z-index: 1;
+			overflow: auto;
+			flex-direction: column; }
+			body.document section.main header {
+				font-size: 1.2rem;
+				line-height: 0;
+				width: 100%;
+				align-items: center;
+				padding: 8px;
+				background-color: #022d5b;
+				color: rgba(255, 255, 255, 0.8); }
+				body.document section.main header div.company, body.document section.main header div.search {
+					cursor: pointer; }
+				body.document section.main header svg {
+					height: 28px; }
+				body.document section.main header div.company span {
+					text-transform: uppercase; }
+			body.document section.main main {
+				height: 200vh;
+				min-height: 200vh; }
+		body.document section.menu {
+			position: fixed;
+			top: 100vh;
+			overflow: hidden;
+			transition: top .1s ease-out;
+			z-index: 5;
+			background-color: white;
+			max-height: 100vh;
+			display: flex;
+			flex-direction: column; }
+			body.document section.menu header {
+				align-items: center;
+				padding: 8px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+				line-height: 0; }
+				body.document section.menu header div.menu--close {
+					cursor: pointer; }
+			body.document section.menu main {
+				overflow: auto;
+				padding: 32px; }
+				body.document section.menu main div {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					cursor: pointer;
+					padding-top: 8px;
+					padding-bottom: 8px; }
+					body.document section.menu main div:first-child {
+						padding-top: 0; }
+					body.document section.menu main div svg {
+						margin-right: 8px;
+						transition: margin-right .2s ease; }
+					body.document section.menu main div:hover svg {
+						margin-right: 12px; }
+	body.document.menu section.main {
+		overflow: hidden; }
+	body.document.menu section.menu {
+		top: 0;
+		height: 100vh; }

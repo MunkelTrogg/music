@@ -1,0 +1,207 @@
+@import 'base'
+
+$songcolor: darken( #2e91fb, 40% )
+$light: rgba( 255, 255, 255, .8 )
+$dark: rgba( 0, 0, 0, .8 )
+$padding-small: 8px
+$padding-big: 4 * $padding-small
+$header-svg-height: 28px
+$header-padding: 2 * $padding-small
+
+*
+    box-sizing: border-box
+body, html
+    margin: 0px
+    height: 100%
+    width: 100%
+    overflow: hidden
+    color: #333
+    font-family: 'Oswald', sans-serif
+    font-weight: 200
+    font-size: 1rem
+body.document
+    margin: 0
+    // display: flex
+    // flex-direction: column
+    svg
+        // width: 24px
+        width: auto
+        height: 24px
+    .container
+        max-width: 1000px
+        margin: 0 auto
+    header
+        .container
+            display: flex
+            align-items: center
+            justify-content: center
+        line-height: 0
+        padding: $header-padding
+        z-index: 10
+        width: 100vw
+        font-size: 1.2rem
+        // border-bottom: 1px solid black
+        background-color: darken( $songcolor, 10% )
+        color: $light
+        div.company, div.search
+            cursor: pointer
+        svg
+            height: $header-svg-height
+        div.company span
+            width: 0
+        div.menu
+            display: flex
+            flex-direction: row
+            flex-grow: 1
+            justify-content: center
+            > div
+                margin-left: 8%
+                &:first-child
+                    margin-left: 0
+                @include query( 700px )
+                    span
+                        display: none
+        div.company
+            @include query( 380px )
+                span
+                    display: none
+        div.company, div.menu div
+            display: flex
+            align-items: center
+            > span
+                padding-left: 8px
+        div.search svg
+            padding-left: 8px // padding bei div.company ausgleichen
+    main
+        display: flex
+        flex-direction: column
+        top: $header-padding * 2 + $header-svg-height
+        width: 100vw
+    footer
+        z-index: 5
+        width: 100vw
+        max-height: 100vh
+        position: fixed
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        bottom: 0
+        // height: 40px
+        height: $header-padding * 2 + $header-svg-height
+        overflow: hidden
+        transition: all .5s ease
+        > div.wrapper
+            background-color: $songcolor
+            width: 100%
+            max-height: 100vh
+            overflow: hidden
+            transition: all .5s ease
+            > div.container
+                // display: none
+                width: 100%
+                max-height: 100vh
+                display: flex
+                flex-direction: column
+                align-items: stretch
+                justify-content: space-around
+                height: 100%
+                .cover
+                    border-radius: 50%
+                    // margin: 38px
+                    max-width: 80vw
+                    min-width: 30px
+                    width: auto
+                    height: auto
+                    display: flex
+                    flex: 0 1 auto
+                    margin-top: 8px
+                    margin-bottom: 8px
+                    align-self: center
+                    min-height: 30px
+                div.playlist
+                    align-self: center
+                    margin-top: 24px
+                    margin-bottom: 12px
+                    span.playlist
+                        font-size: 1.2rem
+                        color: rgba( $light, .5 )
+                        span.process
+                            margin-left: 8px
+                        span.sum
+                            &:before
+                                content: '/'
+                                margin: 0 2px
+                .wrapper
+                    flex-grow: 1
+                    // flex: 1
+                    color: #EEE
+                    display: flex
+                    flex-direction: column
+                    justify-content: space-around
+                    min-height: 300px
+                    margin: $padding-small * 4
+                    margin-top: 0
+                    div.track
+                        display: flex
+                        flex-direction: column
+                        width: 100%
+                        align-items: center
+                        > span
+                            &.title
+                                font-size: 2rem
+                            &.interprete
+                                font-size: 1.4rem
+                    // .time, .icons
+                        // margin: 0 $padding-small
+                    div.icons
+                        display: flex
+                        flex-direction: row
+                        justify-content: space-between
+                        // width: 100%
+                        margin-top: $padding-small
+                        // margin-bottom: $padding-small
+                        svg
+                            height: 32px
+                    div.time
+                        margin: 32px 0
+                    div.operations
+                        min-height: 40px
+                        display: flex
+                        flex-direction: row
+                        align-self: center
+                        line-height: 0
+                        width: 100%
+                        justify-content: center
+                        > *
+                            margin-left: 32px
+                            &:first-child
+                                margin-left: 0
+                        margin: 24px 0
+                        svg
+                            height: 40px
+                        .toggle
+                            transform: scale( 1.6 )
+                            .play, .pause
+                                transition: opacity .1s ease
+                            .play
+                                opacity: 0
+                                z-index: 0
+                                position: absolute
+                                height: 32px
+                            .pause
+                                opacity: 1
+                                z-index: 1
+                            &.playing
+                                .play
+                                    opacity: 1
+                                    z-index: 1
+                                .pause
+                                    opacity: 0
+                                    z-index: 0
+                        .next
+                            transform: rotate( 180deg )
+        &.expanded
+            height: 100vh
+            > div.wrapper
+                margin-top: $header-padding * 2 + $header-svg-height
+                overflow: auto
