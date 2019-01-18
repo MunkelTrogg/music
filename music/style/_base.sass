@@ -12,6 +12,16 @@
             margin-left: auto
 
 
-@mixin query( $width )
+@mixin max( $width )
     @media screen and ( max-width: $width )
         @content
+@mixin min( $width )
+    @media screen and ( min-width: $width )
+        @content
+@mixin minmax( $width1, $width2, $and: false, $additional: '' )
+    @if not $and
+        @media screen and ( min-width: $width1 ), ( max-width: $width2 )#{$additional}
+            @content
+    @else
+        @media screen and ( min-width: $width1 ) and ( max-width: $width2 )#{$additional}
+            @content

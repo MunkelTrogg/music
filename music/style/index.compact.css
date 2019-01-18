@@ -44,13 +44,13 @@ body.document header div.search svg { padding-left: 8px; }
 
 body.document main { display: flex; flex-direction: column; top: 60px; width: 100vw; }
 
-body.document footer { z-index: 5; width: 100vw; max-height: 100vh; position: fixed; display: flex; flex-direction: column; align-items: flex-start; bottom: 0; height: 60px; overflow: hidden; transition: all .5s ease; }
+body.document footer { z-index: 5; width: 100vw; max-height: 100vh; position: fixed; display: flex; flex-direction: column; align-items: flex-start; bottom: 0; height: 60px; overflow: hidden; transition: height .5s ease; }
 
-body.document footer > div.wrapper { background-color: #022d5b; width: 100%; max-height: 100vh; overflow: hidden; transition: all .5s ease; }
+body.document footer > div.wrapper { background-color: #022d5b; width: 100%; max-height: 100%; overflow: hidden; transition: all .5s ease; height: 100%; }
 
 body.document footer > div.wrapper > div.container { width: 100%; max-height: 100vh; display: flex; flex-direction: column; align-items: stretch; justify-content: space-around; height: 100%; }
 
-body.document footer > div.wrapper > div.container .cover { border-radius: 50%; max-width: 80vw; min-width: 30px; width: auto; height: auto; display: flex; flex: 0 1 auto; margin-top: 8px; margin-bottom: 8px; align-self: center; min-height: 30px; }
+body.document footer > div.wrapper > div.container > .cover { border-radius: 50%; max-width: 80vw; min-width: 30px; width: auto; height: auto; display: flex; flex: 0 1 auto; margin-top: 8px; margin-bottom: 8px; align-self: center; min-height: 30px; }
 
 body.document footer > div.wrapper > div.container div.playlist { align-self: center; margin-top: 24px; margin-bottom: 12px; }
 
@@ -60,42 +60,128 @@ body.document footer > div.wrapper > div.container div.playlist span.playlist sp
 
 body.document footer > div.wrapper > div.container div.playlist span.playlist span.sum:before { content: '/'; margin: 0 2px; }
 
-body.document footer > div.wrapper > div.container .wrapper { flex-grow: 1; color: #EEE; display: flex; flex-direction: column; justify-content: space-around; min-height: 300px; margin: 32px; margin-top: 0; }
+body.document footer > div.wrapper > div.container > .wrapper { flex-grow: 1; color: #EEE; display: flex; flex-direction: column; justify-content: space-around; min-height: 300px; margin: 16px; margin-top: 0; }
 
-body.document footer > div.wrapper > div.container .wrapper div.track { display: flex; flex-direction: column; width: 100%; align-items: center; }
+body.document footer > div.wrapper > div.container > .wrapper > div.track { display: flex; flex-direction: column; width: 100%; align-items: center; }
 
-body.document footer > div.wrapper > div.container .wrapper div.track > span.title { font-size: 2rem; }
+body.document footer > div.wrapper > div.container > .wrapper > div.track > span.title { font-size: 2rem; }
 
-body.document footer > div.wrapper > div.container .wrapper div.track > span.interprete { font-size: 1.4rem; }
+body.document footer > div.wrapper > div.container > .wrapper > div.track > span.interprete { font-size: 1.4rem; }
 
-body.document footer > div.wrapper > div.container .wrapper div.icons { display: flex; flex-direction: row; justify-content: space-between; margin-top: 8px; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons { display: flex; flex-direction: row; justify-content: space-between; margin-top: 8px; line-height: 0; }
 
-body.document footer > div.wrapper > div.container .wrapper div.icons svg { height: 32px; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper { display: flex; flex-direction: row; justify-content: space-between; flex-grow: 1; }
 
-body.document footer > div.wrapper > div.container .wrapper div.time { margin: 32px 0; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.wrapper { display: flex; flex-direction: row; justify-content: space-between; flex-grow: 1; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations { min-height: 40px; display: flex; flex-direction: row; align-self: center; line-height: 0; width: 100%; justify-content: center; margin: 24px 0; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.wrapper > div.volume { display: flex; align-items: flex-end; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations > * { margin-left: 32px; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.wrapper > div.volume > div.bar { display: flex; position: fixed; z-index: 15; bottom: 0; padding-bottom: 0; transition: all .1s ease; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations > *:first-child { margin-left: 0; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.wrapper > div.volume > div.bar > div.wrapper { height: 120px; max-height: 0; width: 30px; background-color: #333; transition: all .1s ease; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations svg { height: 40px; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.wrapper > div.volume > svg:hover + div.bar, body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.wrapper > div.volume > div.bar:hover { padding-bottom: 54px; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations .toggle { transform: scale(1.6); }
+body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.wrapper > div.volume > svg:hover + div.bar > div.wrapper, body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.wrapper > div.volume > div.bar:hover > div.wrapper { max-height: 100vh; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations .toggle .play, body.document footer > div.wrapper > div.container .wrapper div.operations .toggle .pause { transition: opacity .1s ease; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons div.menu svg { cursor: pointer; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations .toggle .play { opacity: 0; z-index: 0; position: absolute; height: 32px; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons div.collapse svg { transform: rotate(90deg); transition: .1s ease; cursor: pointer; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations .toggle .pause { opacity: 1; z-index: 1; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons > div.collapse, body.document footer > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.menu { display: none; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations .toggle.playing .play { opacity: 1; z-index: 1; }
+body.document footer > div.wrapper > div.container > .wrapper div.icons svg { height: 32px; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations .toggle.playing .pause { opacity: 0; z-index: 0; }
+body.document footer > div.wrapper > div.container > .wrapper div.time { margin: 32px 0; }
 
-body.document footer > div.wrapper > div.container .wrapper div.operations .next { transform: rotate(180deg); }
+body.document footer > div.wrapper > div.container > .wrapper div.operations { min-height: 40px; display: flex; flex-direction: row; align-self: center; align-items: center; width: 100%; justify-content: space-between; margin: 24px 0; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .tracks { line-height: 0; display: flex; flex-direction: row; align-items: center; justify-content: center; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .tracks > *:not(.preview) { margin-left: 24px; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .tracks > *:not(.preview):first-child { margin-left: 0; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .preview { display: flex; flex-direction: row; align-items: center; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .preview .track { display: flex; flex-direction: column; align-items: flex-end; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .preview .track .title { font-size: 1.4rem; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .preview .cover + .track { align-items: flex-start; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .preview .cover { height: 60px; width: auto; border-radius: 50%; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .preview .cover + .track, body.document footer > div.wrapper > div.container > .wrapper div.operations .preview .track + .cover { margin-left: 12px; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations svg { height: 40px; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .toggle { transform: scale(1.6); }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .toggle .play, body.document footer > div.wrapper > div.container > .wrapper div.operations .toggle .pause { transition: opacity .1s ease; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .toggle .play { opacity: 0; z-index: 0; position: absolute; height: 32px; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .toggle .pause { opacity: 1; z-index: 1; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .toggle.playing .play { opacity: 1; z-index: 1; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .toggle.playing .pause { opacity: 0; z-index: 0; }
+
+body.document footer > div.wrapper > div.container > .wrapper div.operations .next { transform: rotate(180deg); }
+
+@media screen and (max-width: 700px) { body.document footer > div.wrapper > div.container > .wrapper div.operations { justify-content: space-around; }
+	body.document footer > div.wrapper > div.container > .wrapper div.operations .preview .track { display: none; }
+	body.document footer > div.wrapper > div.container > .wrapper div.operations .preview .track, body.document footer > div.wrapper > div.container > .wrapper div.operations .preview .cover { margin-left: 0 !important; } }
+
+body.document footer.expanded > div.wrapper > div.container > .wrapper div.icons div.collapse svg { transform: rotate(270deg); }
 
 body.document footer.expanded { height: 100vh; }
 
-body.document footer.expanded > div.wrapper { margin-top: 60px; overflow: auto; }
+body.document footer.expanded > div.wrapper { margin-top: 60px; }
+
+body.document footer.expanded > div.wrapper > div.container > .wrapper div.icons > div.wrapper > div.wrapper { display: flex !important; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container { padding: 16px; flex-direction: row; align-items: center; justify-content: space-around; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > .playlist { margin: 0; display: none; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > .cover { height: 40px; order: -1; width: 40px; flex-grow: 0; min-width: 10px; margin: 0; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper { flex-direction: row; margin: 0; flex-grow: 1; margin-left: 16px; min-height: 0; justify-content: space-between; align-items: center; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons { line-height: 0; }
+
+@media screen and (min-width: 893px), and { body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.menu { display: none; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper { display: flex !important; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper > div { margin-left: 16px; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper > div:first-child { margin-left: 0; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper > div.collapse { display: flex; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.collapse { display: none; } }
+
+@media screen, screen and (max-width: 510px) and (min-width: 680px) and (max-width: 892px) { body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper { display: flex; flex-direction: column; justify-content: flex-end; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper { position: fixed; display: none; z-index: 15; bottom: 54px; padding: 16px; border-radius: 8px; background-color: #333; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper > div.volume { justify-content: flex-end; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper > div.volume > div.bar { width: 106px; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper > div { margin-top: 8px; margin-left: 0; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper > div:first-child { margin-top: 0; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.wrapper > div.collapse { display: none; }
+	body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.collapse, body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > div.icons > div.wrapper > div.menu { display: flex; } }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > .time { margin: 0; flex-grow: .8; }
+
+@media screen and (max-width: 680px) { body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > .time { display: none; } }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > .track { width: auto; align-items: flex-start; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > .track .title { font-size: 1.2rem; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > .track .interprete { font-size: .8rem; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > .operations { min-height: 0; margin: 0; width: auto; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > .operations .preview { display: none; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > .operations svg { height: 24px; }
+
+body.document footer:not(.expanded) > div.wrapper > div.container > div.wrapper > .icons { margin-top: 0; }
